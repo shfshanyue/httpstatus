@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   ]
 
   const components = {
-    wrapper: (props: any) => <article className="markdown-body p-6 rounded !my-6 bg-white" {...props} />,
+    wrapper: (props: any) => <article className="markdown-body page p-6 rounded !my-6 bg-white" {...props} />,
     // h1: (props: any) => <h1 className="pb-2 my-4 border-b border-gray-300" {...props} />,
     // h2: (props: any) => <h2 className="my-3" {...props} />,
     // h3: (props: any) => <h3 className="my-2" {...props} />,

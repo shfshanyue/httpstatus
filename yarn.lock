@@ -1697,6 +1697,11 @@ micromatch@^4.0.4:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
+midash@^0.2.10:
+  version "0.2.10"
+  resolved "https://registry.npmmirror.com/midash/-/midash-0.2.10.tgz#54b4a10e1926224b5500b70dd224eae8b73d101a"
+  integrity sha512-gyv9yG/NCBHy+peqWH32aQH8G3chfzN04pEudQuCoK70Xx4QPAFSZ0wmwP5lgKYfi8HcEHwkxqO1KlEXLBefxQ==
+
 mime-db@1.52.0:
   version "1.52.0"
   resolved "https://registry.npmmirror.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"

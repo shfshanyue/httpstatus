@@ -54,7 +54,8 @@
   }
 
   .markdown-body code,
-  .markdown-body tt {
+  .page code,
+  code {
     padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
@@ -62,32 +63,41 @@
     @apply text-orange-600 border border-gray-200 bg-gray-50 before:content-[""] after:content-[""];
   }
 
-  .markdown-body {
+  .markdown-body pre > code {
+    display: block;
+    margin: 0;
+    word-break: normal;
+    overflow-x: auto;
+    background: #1f2937;
+    @apply text-gray-100 border-0;
+  }
+
+  .page {
     max-width: 100%;
     margin-right: auto;
     margin-left: auto;
   }
   
   @media (min-width: 640px) {
-    .markdown-body {
+    .page {
       max-width: 640px;
     }
   }
 
   @media (min-width: 768px) {
-    .markdown-body {
+    .page {
       max-width: 768px;
     }
   }
 
   @media (min-width: 1024px) {
-    .markdown-body {
+    .page {
       max-width: 960px;
     }
   }
 
   @media (min-width: 1280px) {
-    .markdown-body {
+    .page {
       max-width: 960px;
     }
   }

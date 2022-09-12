@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { AppProps } from 'next/app'
+import AppProps from 'next/app'
 import Router from 'next/router'
 import { MDXProvider } from '@mdx-js/react'
 
 import { initGA, logPageView } from '../lib/ga'
 import '../styles/index.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   useEffect(() => {
     if (process.env.gaId) {
       initGA()

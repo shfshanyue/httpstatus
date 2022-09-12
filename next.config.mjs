@@ -1,8 +1,7 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
-
-// ({
-//   enabled: process.env.ANALYZE === 'true'
-// })
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import withMDX from '@next/mdx'
 
 const config = {
   swcMinify: true,
@@ -11,9 +10,17 @@ const config = {
   },
   webpack (config) {
     return config
-  }
+  },
+  pageExtensions: ['js', 'jsx', 'mdx', 'tsx'],
 }
 
-export default withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true'
-})(config)
+export default withMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter]
+  }
+})(
+  withBundleAnalyzer({
+    enabled: process.env.ANALYZE === 'true'
+  })(config)
+)

@@ -1,0 +1,20 @@
+---
+set: 4
+code: 423
+title: Locked
+references:
+    ".NET HTTP Status Enum": "HttpStatusCode.Locked"
+    "Rust HTTP Status Constant": "http::StatusCode::LOCKED"
+    "Rails HTTP Status Symbol": ":locked"
+    "Symfony HTTP Status Constant": "Response::HTTP_LOCKED"
+---
+
+The source or destination resource of a method is locked.
+
+This response SHOULD contain an appropriate precondition or postcondition code, such as 'lock-token-submitted' or 'no-conflicting-lock'.
+
+---
+
+* Source: [RFC4918 Section 11.3][1]
+
+[1]: <https://tools.ietf.org/html/rfc4918#section-11.3>

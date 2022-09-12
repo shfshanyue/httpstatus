@@ -1,0 +1,15 @@
+component: nextjs # (必填) 组件名称，此处为nextjs
+name: next-app
+
+inputs:
+  src: ./
+  functionName: next-app-fn
+  region: ap-guangzhou
+  runtime: Nodejs12.16
+  exclude:
+    - .env
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release

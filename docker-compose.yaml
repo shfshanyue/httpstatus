@@ -1,0 +1,14 @@
+version: "3"
+services:
+  shici:
+    build: .
+    restart: always
+    labels:
+      - traefik.http.routers.next-app.rule=Host(`next-app.shanyue.tech`)
+      - traefik.http.routers.next-app.tls=true
+      - traefik.http.routers.next-app.tls.certresolver=le
+
+networks:
+  default:
+    external:
+      name: traefik_default

@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+服务器想要将没有在使用的连接关闭。一些服务器会在空闲连接上发送此信息，即便是在客户端没有发送任何请求的情况下。
+
 The server did not receive a complete request message within the time that it was prepared to wait.
 
 A server SHOULD send the "close" connection option<sup>[1](#ref-1)</sup> in the response, since 408 implies that the server has decided to close the connection rather than continue waiting. If the client has an outstanding request in transit, the client MAY repeat that request on a new connection.

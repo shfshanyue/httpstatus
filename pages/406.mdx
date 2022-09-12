@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+服务器端无法提供与 Accept-Charset 以及 Accept-Language 消息头指定的值相匹配的响应。
+
 The target resource does not have a current representation that would be acceptable to the user agent, according to the proactive negotiation header fields received in the request<sup>[1](#ref-1)</sup>, and the server is unwilling to supply a default representation.
 
 The server SHOULD generate a payload containing a list of available representation characteristics and corresponding resource identifiers from which the user or user agent can choose the one most appropriate. A user agent MAY automatically select the most appropriate choice from that list. However, this specification does not define any standard for such automatic selection, as described in [RFC7231 Section 6.4.1][3].

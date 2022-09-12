@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+请求的资源被暂时的移动到了由该 HTTP 响应的响应头 `Location` 指定的 URL 上。浏览器会重定向到这个 URL，但是搜索引擎不会对该资源的链接进行更新。
+
 The target resource resides temporarily under a different URI. Since the redirection might be altered on occasion, the client ought to continue to use the effective request URI for future requests.
 
 The server SHOULD generate a Location header field in the response containing a URI reference for the different URI. The user agent MAY use the Location field value for automatic redirection. The server's response payload usually contains a short hypertext note with a hyperlink to the different URI(s).

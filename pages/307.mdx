@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+临时重定向响应状态码，表示请求的资源暂时地被移动到了响应的 `Location` 首部所指向的 URL 上。
+
 The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI.
 
 Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.

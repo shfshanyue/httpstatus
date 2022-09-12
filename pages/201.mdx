@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+请求已经被成功处理，并且创建了新的资源。新的资源在应答返回之前已经被创建。同时新增的资源会在应答消息体中返回，其地址或者是原始请求的路径，或者是 `Location` 首部的值。
+
 The request has been fulfilled and has resulted in one or more new resources being created.
 
 The primary resource created by the request is identified by either a Location header field in the response or, if no Location field is received, by the effective request URI.

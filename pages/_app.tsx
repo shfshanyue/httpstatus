@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   ]
 
   const components = {
-    wrapper: (props: any) => <article className="markdown-body page p-6 rounded !my-6 bg-white" {...props} />,
+    wrapper: (props: any) => <article className="markdown-body page rounded !my-6 bg-white" {...props} />,
     // h1: (props: any) => <h1 className="pb-2 my-4 border-b border-gray-300" {...props} />,
     // h2: (props: any) => <h2 className="my-3" {...props} />,
     // h3: (props: any) => <h3 className="my-2" {...props} />,
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <MDXProvider components={components}>
       <Helmet
         htmlAttributes={{ lang: 'en' }}
-        title="开发者武器库，属于程序员的工具箱"
+        title="HTTP 状态码速查大全"
         meta={meta}
       />
       <Component {...pageProps} />

@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+由于缺少确定的 `Content-Length` 首部字段，服务器拒绝客户端的请求。
+
 The server refuses to accept the request without a defined Content-Length<sup>[1](#ref-1)</sup>.
 
 The client MAY repeat the request if it adds a valid Content-Length header field containing the length of the message body in the request message.

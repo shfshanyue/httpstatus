@@ -17,19 +17,28 @@ function Home() {
   return (
     <div className="p-4 page">
       <Helmet
-        title="Home | Hello next.js!"
-        meta={[{ property: 'og:title', content: 'Home' }]}
+        title="HTTP 状态码速查大全"
       />
       <h1>HTTP 状态码速查大全</h1>
       <p>
         <code>http.devtool.tech</code> 是关于 HTTP 状态码的一个网站，可通过 <code>http.devtool.tech/code</code> 进行快速导航。
       </p>
       <p>
-        可通过 <a href="https://apifox.cn/a1shanyue"><code>Apifox</code></a> 探索发现各种开放 API，找到大部分状态码，可通过 <a href="https://github.com/shfshanyue/httpstatus"><code>Github</code></a> 仓库找到源码。
+        本工具由 <a href="https://apifox.cn/a1shanyue"><code>Apifox</code></a> 重度使用者开发，可通过 <a href="https://apifox.cn/a1shanyue"><code>Apifox</code></a> 探索发现各种开放 API，找到大部分状态码。该项目可通过 <a href="https://github.com/shfshanyue/httpstatus"><code>Github</code></a> 仓库找到源码。
       </p>
       <div>
         {/* <a href="https://github.com/shfshanyue/httpstatus" className="mr-4 no-underline">★ Github Star</a> */}
         {/* <a href="https://apifox.cn/a1shanyue" className="no-underline">Apifox</a> */}
+      </div>
+      <div className="grid grid-cols-2 border-t border-b">
+        <div className="grid place-items-center">
+          <div className="ml-16 text-center">
+            <h3 className="my-2 text-center h3 not-prose">API Hub</h3>
+            <div className="mb-2">发现更多公开 API 项目</div>
+            <a href="https://apifox.cn/a1shanyue" target="_blank" className="inline-block no-underline app-button">打开 Apifox</a>
+          </div>
+        </div>
+        <img className="w-[320px] rounded-lg border my-4" src="https://static.shanyue.tech/images/22-09-12/clipboard-4957.4a43a6.webp" alt="" />
       </div>
       <div>
         {

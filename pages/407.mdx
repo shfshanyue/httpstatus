@@ -16,6 +16,8 @@ import CodeTitle from '../components/CodeTitle'
 
 <CodeTitle code={code} title={title} />
 
+由于缺乏位于浏览器与可以访问所请求资源的服务器之间的代理服务器（proxy server ）要求的身份验证凭证，发送的请求尚未得到满足。
+
 Similar to [401 Unauthorized](/401), but it indicates that the client needs to authenticate itself in order to use a proxy.
 
 The proxy MUST send a Proxy-Authenticate header field<sup>[1](#ref-1)</sup> containing a challenge applicable to that proxy for the target resource. The client MAY repeat the request with a new or replaced Proxy-Authorization header field<sup>[2](#ref-2)</sup>.

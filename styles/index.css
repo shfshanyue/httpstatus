@@ -4,6 +4,9 @@
 
 @tailwind utilities;
 
+@layer utilities {
+}
+
 @layer base {
 
   [multiple],
@@ -26,11 +29,66 @@
 }
 
 @layer components {
+  .app-button {
+    @apply px-6 py-1 text-gray-700 bg-white border border-gray-400 rounded-full shadow-sm hover:border-orange-500 hover:text-orange-600 hover:ring-1 hover:ring-orange-500;
+  }
+
   .app-input {
     @apply block w-full border-gray-400 rounded-md shadow-sm outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500;
   }
 
-  .app-button {
-    @apply px-6 py-1 text-gray-700 bg-white border border-gray-400 rounded-full shadow-sm hover:border-orange-500 hover:text-orange-600 hover:ring-1 hover:ring-orange-500;
+  .markdown-body {
+    @apply text-gray-700;
+  }
+
+  .markdown-body p,
+  .markdown-body blockquote,
+  .markdown-body ul,
+  .markdown-body ol,
+  .markdown-body dl,
+  .markdown-body table,
+  .markdown-body pre,
+  .markdown-body details,
+  .markdown-body hr {
+    @apply mt-0 mb-4;
+  }
+
+  .markdown-body code,
+  .markdown-body tt {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 6px;
+    @apply text-orange-600 border border-gray-200 bg-gray-50 before:content-[""] after:content-[""];
+  }
+
+  .markdown-body {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  @media (min-width: 640px) {
+    .markdown-body {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .markdown-body {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .markdown-body {
+      max-width: 960px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .markdown-body {
+      max-width: 960px;
+    }
   }
 }

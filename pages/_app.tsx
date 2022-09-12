@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
+import { MDXProvider } from '@mdx-js/react'
 
 import { initGA, logPageView } from '../lib/ga'
 import '../styles/index.css'
-
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -23,15 +23,31 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   ]
 
+  const components = {
+    wrapper: (props: any) => <article className="markdown-body p-6 rounded !my-6 bg-white" {...props} />,
+    // h1: (props: any) => <h1 className="pb-2 my-4 border-b border-gray-300" {...props} />,
+    // h2: (props: any) => <h2 className="my-3" {...props} />,
+    // h3: (props: any) => <h3 className="my-2" {...props} />,
+    // p: (props: any) => <p className="my-2" {...props} />,
+    // inlineCode: (props: any) => <code className="font-mono text-blue-500 bg-gray-100" {...props} />,
+  }
+
+  if (process.env.baiduToken) {
+    meta.push({
+      name: 'baidu-site-verification',
+      content: process.env.baiduToken
+    })
+  }
+
   return (
-    <>
+    <MDXProvider components={components}>
       <Helmet
         htmlAttributes={{ lang: 'en' }}
-        title="Hello next.js!"
+        title="开发者武器库，属于程序员的工具箱"
         meta={meta}
       />
       <Component {...pageProps} />
-    </>
+    </MDXProvider>
   )
 }
 

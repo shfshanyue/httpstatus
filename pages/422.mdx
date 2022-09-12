@@ -8,6 +8,9 @@ references:
     "Rails HTTP Status Symbol": ":unprocessable_entity"
     "Symfony HTTP Status Constant": "Response::HTTP_UNPROCESSABLE_ENTITY"
 ---
+import CodeTitle from '../components/CodeTitle'
+
+<CodeTitle code={code} title={title} />
 
 The server understands the content type of the request entity (hence a [415 Unsupported Media Type](/415) status code is inappropriate), and the syntax of the request entity is correct (thus a [400 Bad Request](/400) status code is inappropriate) but was unable to process the contained instructions.
 

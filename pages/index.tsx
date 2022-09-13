@@ -30,15 +30,15 @@ function Home() {
         {/* <a href="https://github.com/shfshanyue/httpstatus" className="mr-4 no-underline">★ Github Star</a> */}
         {/* <a href="https://apifox.cn/a1shanyue" className="no-underline">Apifox</a> */}
       </div>
-      <div className="grid grid-cols-2 border-t border-b">
+      <div className="grid grid-cols-1 border-t border-b sm:grid-cols-2">
         <div className="grid place-items-center">
-          <div className="ml-16 text-center">
+          <div className="text-center sm:ml-16">
             <h3 className="my-2 text-center h3 not-prose">API Hub</h3>
             <div className="mb-2">发现更多公开 API 项目</div>
             <a href="https://apifox.cn/a1shanyue" target="_blank" className="inline-block no-underline app-button">打开 Apifox</a>
           </div>
         </div>
-        <img className="w-[320px] rounded-lg border my-4" src="https://static.shanyue.tech/images/22-09-12/clipboard-4957.4a43a6.webp" alt="" />
+        <img className="w-[320px] sm:ml-0 mx-auto rounded-lg border my-4" src="https://static.shanyue.tech/images/22-09-12/clipboard-4957.4a43a6.webp" alt="" />
       </div>
       <div>
         {
@@ -49,7 +49,7 @@ function Home() {
                 <span>{' '}</span>
                 <span>{group.name}</span>
               </h2>
-              <div className="grid grid-cols-2 gap-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
                 {
                   group.list.map(x => (
                     <Link href={`/${x.code}`} key={x.code}>

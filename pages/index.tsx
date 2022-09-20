@@ -41,7 +41,7 @@ function Home() {
             <a href="https://apifox.cn/a1shanyue" target="_blank" className="inline-block no-underline app-button">打开 Apifox</a>
           </div>
         </div>
-        <Image width={500} className="w-[320px] sm:ml-0 mx-auto rounded-lg border my-4" src={ApifoxImage} alt="" />
+        <Image width={500} className="w-[320px] sm:ml-0 mx-auto rounded-lg border my-4" src={ApifoxImage} alt="API Hub" placeholder="blur" />
       </div>
       <div>
         {

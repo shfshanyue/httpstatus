@@ -1,7 +1,10 @@
 import { Helmet } from 'react-helmet'
 import * as _ from 'midash'
 import Link from 'next/link'
+import Image from 'next/future/image'
+
 import code from '../lib/code.json'
+import ApifoxImage from '../assets/apifox.webp'
 
 const data = _.groupBy(code, x => x.code.toString()[0])
 const groups = Object.entries(data).map(([ key, list ]) => {
@@ -38,7 +41,7 @@ function Home() {
             <a href="https://apifox.cn/a1shanyue" target="_blank" className="inline-block no-underline app-button">打开 Apifox</a>
           </div>
         </div>
-        <img className="w-[320px] sm:ml-0 mx-auto rounded-lg border my-4" src="https://static.shanyue.tech/images/22-09-12/clipboard-4957.4a43a6.webp" alt="" />
+        <Image width={500} className="w-[320px] sm:ml-0 mx-auto rounded-lg border my-4" src={ApifoxImage} alt="" />
       </div>
       <div>
         {

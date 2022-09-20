@@ -6,9 +6,17 @@ import withMDX from '@next/mdx'
 const config = {
   swcMinify: true,
   env: {
-    gaId: 'UA-',
+    // 极客时间 ID
+    gaId: 'UA-102193749-5',
+    // Devtool ID
+    gtmId: 'G-B0BG6J2K56',
+    baiduToken: 'code-qSWZ8u5lnF'
   },
-  webpack (config) {
+  images: {
+    domains: ['http.cat'],
+    formats: ['image/avif', 'image/webp'],
+  },
+  webpack(config) {
     return config
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'tsx'],

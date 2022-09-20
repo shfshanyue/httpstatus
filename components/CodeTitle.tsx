@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/future/image'
 import { Helmet } from 'react-helmet'
 
 export default function CodeTitle ({ code, title }: Record<string, string>) {
@@ -16,7 +17,7 @@ export default function CodeTitle ({ code, title }: Record<string, string>) {
         <span className="mr-4">{code}</span>
         <span className="font-mono">{title}</span>
       </h1>
-      <img src={`https://http.cat/${code}`} className="mx-auto" />
+      <Image width={750} height={600} src={`https://http.cat/${code}`} alt={code} className="mx-auto" placeholder='blur' blurDataURL='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzUwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDc1MCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI3NTAiIGhlaWdodD0iNjAwIiBmaWxsPSIjRTVFN0VCIi8+Cjwvc3ZnPgo=' />
     </>
   )
 }

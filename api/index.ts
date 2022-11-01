@@ -5,7 +5,9 @@ import cookie from 'cookie'
 import * as _ from 'midash'
 
 const router = new Router()
-const app = new Koa()
+const app = new Koa({
+  proxy: true
+})
 
 router.get('/api', ctx => {
   ctx.body = 'hello, world'
@@ -35,17 +37,18 @@ router.get('/api/cookies', ctx => {
 })
 
 router.get('/api/cookies/set/:key/:value', ctx => {
-  const { key, value } = ctx.params
+  const { key, value } = ctx.params;
   ctx.cookies.set(key, value, {
     ..._.pick(ctx.query, [
       'maxAge',
       'path',
-      'domain'
+      'domain',
+      'sameSite'
     ]) as any,
     maxAge: Number(ctx.query.maxAge || 0) * 1000,
     httpOnly: ctx.query.httpOnly === 'true',
-    secure: Boolean(ctx.query.secure)
-  })
+    secure: ctx.query.secure === 'true'
+  });
   ctx.redirect('/api/cookies')
 })
 

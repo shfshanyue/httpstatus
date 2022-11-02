@@ -3,6 +3,7 @@ import Router from 'koa-router'
 import koaBody from 'koa-body'
 import cookie from 'cookie'
 import * as _ from 'midash'
+import cors from '@koa/cors'
 
 const router = new Router()
 const app = new Koa({
@@ -52,6 +53,16 @@ router.get('/api/cookies/set/:key/:value', ctx => {
   ctx.redirect('/api/cookies')
 })
 
+app.use(async (ctx, next) => {
+  if (ctx.query.cors === 'true') {
+    await cors({
+      origin: ctx.query.origin as string || undefined,
+      credentials: ctx.query.credentials === 'true'
+    }).call(this, ctx, next)
+  } else {
+    await next()
+  }
+})
 app.use(koaBody())
 app
   .use(router.routes())

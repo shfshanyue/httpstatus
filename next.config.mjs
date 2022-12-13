@@ -19,7 +19,7 @@ const config = {
   webpack(config) {
     return config
   },
-  pageExtensions: ['js', 'jsx', 'mdx', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'mdx', 'tsx']
 }
 
 export default withMDX({

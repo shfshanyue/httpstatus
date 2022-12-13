@@ -4,6 +4,7 @@ import koaBody from 'koa-body'
 import cookie from 'cookie'
 import * as _ from 'midash'
 import cors from '@koa/cors'
+import { createWriteStream } from 'fs'
 
 const router = new Router()
 const app = new Koa({
@@ -53,6 +54,11 @@ router.get('/api/cookies/set/:key/:value', ctx => {
   ctx.redirect('/api/cookies')
 })
 
+router.post('/api/upload-jpeg', ctx => {
+  ctx.req.pipe(createWriteStream('./assets/hello.jpg'))
+  ctx.body = ctx.req
+})
+
 app.use(async (ctx, next) => {
   if (ctx.query.cors === 'true') {
     await cors({
@@ -63,6 +69,7 @@ app.use(async (ctx, next) => {
     await next()
   }
 })
+
 app.use(koaBody())
 app
   .use(router.routes())
@@ -71,7 +78,7 @@ app
 export default app.callback()
 
 if (require.main) {
-  app.listen(3000, () => {
+  app.listen(8000, () => {
     console.log('Listing 3000')
   })
 }

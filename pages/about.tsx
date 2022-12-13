@@ -13,7 +13,7 @@ export default function About() {
         About Page
       </h1>
       <Link href="/">
-        <a>Back to home</a>
+        Back to home
       </Link>
     </div>
   )

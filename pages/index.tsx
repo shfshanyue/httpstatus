@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet'
 import * as _ from 'midash'
 import Link from 'next/link'
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 import code from '../lib/code.json'
 import ApifoxImage from '../assets/apifox.webp'
@@ -55,12 +55,10 @@ function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
                 {
                   group.list.map(x => (
-                    <Link href={`/${x.code}`} key={x.code}>
-                      <a className="font-mono text-lg decoration-orange-200">
-                        <span>{x.code}</span>
-                        <span>{' '}</span>
-                        <span>{x.phrase}</span>
-                      </a>
+                    <Link href={`/${x.code === 404 ? 'not-found' : x.code}`} key={x.code} className="font-mono text-lg decoration-orange-200">
+                      <span>{x.code}</span>
+                      <span>{' '}</span>
+                      <span>{x.phrase}</span>
                     </Link>
                   ))
                 }

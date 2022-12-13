@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Helmet } from 'react-helmet'
 
 export default function CodeTitle ({ code, title }: Record<string, string>) {
@@ -9,8 +9,8 @@ export default function CodeTitle ({ code, title }: Record<string, string>) {
         title={`HTTP 状态码 ${code} ${title} 详解`}
       />
       <div className="my-4 text-center">
-        <Link href="/">
-          <a className="no-underline">← 返回 http.devtool.tech</a>
+        <Link href="/" className="no-underline">
+          ← 返回 http.devtool.tech
         </Link>
       </div>
       <h1 className="text-center">

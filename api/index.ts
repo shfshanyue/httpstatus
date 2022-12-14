@@ -6,6 +6,19 @@ import * as _ from 'midash'
 import cors from '@koa/cors'
 import { createWriteStream } from 'fs'
 
+import OSS from 'ali-oss'
+import { createReadStream } from 'fs'
+import { resolve } from 'path'
+import { Stream } from 'stream'
+import { nextTick } from 'process'
+
+const client = new OSS({
+  region: 'oss-cn-beijing',
+  accessKeyId: process.env.ACCESS_KEY_ID as string,
+  accessKeySecret: process.env.ACCESS_KEY_SECRET as string,
+  bucket: 'shanyue-static'
+})
+
 const router = new Router()
 const app = new Koa({
   proxy: true
@@ -54,9 +67,12 @@ router.get('/api/cookies/set/:key/:value', ctx => {
   ctx.redirect('/api/cookies')
 })
 
-router.post('/api/upload-jpeg', ctx => {
-  ctx.req.pipe(createWriteStream('./hello.jpg'))
-  ctx.body = ctx.req
+router.post('/api/upload-jpeg', async (ctx, next) => {
+  const random = Math.random().toString(16)
+  const r = await client.putStream(`demo/${random}.jpg`, ctx.req)
+  ctx.body = {
+    src: `https://static.shanyue.tech/${r.name}`
+  }
 })
 
 app.use(async (ctx, next) => {

@@ -10,7 +10,7 @@
     "url": "https://github.com/shfshanyue/next-app"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "dev:api": "nodemon api/index.ts",
     "build": "next build",
     "start": "next start",

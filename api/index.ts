@@ -55,7 +55,7 @@ router.get('/api/cookies/set/:key/:value', ctx => {
 })
 
 router.post('/api/upload-jpeg', ctx => {
-  ctx.req.pipe(createWriteStream('./assets/hello.jpg'))
+  ctx.req.pipe(createWriteStream('./hello.jpg'))
   ctx.body = ctx.req
 })
 

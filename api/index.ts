@@ -12,6 +12,8 @@ import { resolve } from 'path'
 import { Stream } from 'stream'
 import { nextTick } from 'process'
 
+const sleep = (seconds: number) => new Promise(resolve => setTimeout(resolve, seconds))
+
 const client = new OSS({
   region: 'oss-cn-beijing',
   accessKeyId: process.env.ACCESS_KEY_ID as string,
@@ -67,6 +69,33 @@ router.get('/api/cookies/set/:key/:value', ctx => {
   ctx.redirect('/api/cookies')
 })
 
+router.get('/api/stream', async ctx => {
+  const res = ctx.res;
+  res.statusCode = 200;
+  ctx.set('Transfer-Encoding', 'chunked');
+  res.write(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>测试页面</title>
+    </head>
+    <body>`
+  )
+  await sleep(2000)
+  res.write('<h1>hello, shanyue</h1>')
+  await sleep(2000)
+  res.write('<div>这里是大段文字，将会延迟两秒才会正常渲染</div>')
+  await sleep(2000)
+  res.write('<div>这里又是大段文字，将会延迟两秒才会正常渲染</div>')
+  await sleep(1000)
+  res.write('代码: https://github.com/shfshanyue/httpstatus/blob/master/api/index.ts')
+  res.end(`
+    </body>
+    </html>
+  `)
+})
+
 router.post('/api/upload-jpeg', async (ctx, next) => {
   const random = Math.random().toString(16)
   const r = await client.putStream(`demo/${random}.jpg`, ctx.req)
@@ -95,6 +124,6 @@ export default app.callback()
 
 if (require.main) {
   app.listen(8000, () => {
-    console.log('Listing 3000')
+    console.log('Listing 8000')
   })
 }
